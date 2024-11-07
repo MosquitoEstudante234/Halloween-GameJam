@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -6772,21 +6772,21 @@ TextureImporter:
       Serene Village_black_304: -720339431
       Serene Village_black_178: -1249450965
       Serene Village_black_1: 1096770452
-      Serene Village_black_74: -199799930
       Serene Village_black_124: 1906209654
+      Serene Village_black_74: -199799930
+      Serene Village_black_240: 2015911446
       Serene Village_black_146: -946957657
       Serene Village_black_253: -1935387207
-      Serene Village_black_240: 2015911446
       Serene Village_black_60: 895727484
-      Serene Village_black_96: 1801481733
+      Serene Village_black_193: 930423466
       Serene Village_black_180: -609268441
       Serene Village_black_7: -1217710753
-      Serene Village_black_193: 930423466
+      Serene Village_black_209: -1970772212
       Serene Village_black_53: -2140569784
-      Serene Village_black_150: -2073869990
+      Serene Village_black_96: 1801481733
       Serene Village_black_195: 1591476181
       Serene Village_black_137: -336079541
-      Serene Village_black_209: -1970772212
+      Serene Village_black_150: -2073869990
       Serene Village_black_250: 1396846069
       Serene Village_black_252: 154626830
       Serene Village_black_256: -430386398
