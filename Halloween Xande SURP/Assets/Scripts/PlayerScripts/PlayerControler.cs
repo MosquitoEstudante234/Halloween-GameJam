@@ -20,11 +20,12 @@ public class PlayerControler : MonoBehaviour
         playerMovement.x = Input.GetAxisRaw("Horizontal");
         playerMovement.y = Input.GetAxisRaw("Vertical");
 
+        playerAnimator.SetFloat("FloatX", playerMovement.x);
+        playerAnimator.SetFloat("FloatY", playerMovement.y);
+
         if (playerMovement.x != 0 || playerMovement.y != 0)
         {
-            playerAnimator.SetBool("Walking", true);
-            playerAnimator.SetFloat("FloatX", playerMovement.x);
-            playerAnimator.SetFloat("FloatY", playerMovement.y);
+            playerAnimator.SetFloat("speed", playerMovement.sqrMagnitude);
         }
         else
         {
