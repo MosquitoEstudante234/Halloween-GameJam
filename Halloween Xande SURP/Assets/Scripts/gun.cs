@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class gun : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [HideInInspector] public Camera mainCamera;
+    public Transform aimTransform;
+    public float gunAngle;
+    public Vector3 mousePos;
+    public int gunBullets;
+    public float reloadingTime;
+    public int damage;
+    [HideInInspector] public Vector3 aimDirection;
+
     void Start()
     {
-        
+        mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        aimDirection = mousePos - transform.position;
+        gunAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, gunAngle);
     }
 }
