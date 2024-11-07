@@ -1,0 +1,210 @@
+fileFormatVersion: 2
+guid: bed02883abe9b7946a934205b3b76c2b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70.5
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Serene Village - Outside_768x768_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 649
+        width: 76
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8968800c6b3934a99b8f79370343d2
+      internalID: -2139579047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chao_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 540
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f76d0adbb3393b439f0ba3d81d32dca
+      internalID: 1946924193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Serene Village - Outside_768x768_16: -912099512
+      Serene Village - Outside_768x768_3: 504154704
+      Serene Village - Outside_768x768_2: 837980600
+      Serene Village - Outside_768x768_28: -370075511
+      Serene Village - Outside_768x768_13: 156622903
+      Serene Village - Outside_768x768_9: 1998178320
+      Serene Village - Outside_768x768_30: 508375819
+      Serene Village - Outside_768x768_27: 1606216017
+      Serene Village - Outside_768x768_4: -685379933
+      Serene Village - Outside_768x768_26: -2139579047
+      Serene Village - Outside_768x768_10: -1092645024
+      Chao_0: 1946924193
+      Serene Village - Outside_768x768_5: 41391559
+      Serene Village - Outside_768x768_6: 585032102
+      Serene Village - Outside_768x768_11: 1007112167
+      Serene Village - Outside_768x768_0: 262071370
+      Serene Village - Outside_768x768_18: 1358589626
+      Serene Village - Outside_768x768_19: 131521726
+      Serene Village - Outside_768x768_17: 1929969816
+      Serene Village - Outside_768x768_8: -1736709147
+      Serene Village - Outside_768x768_25: 1328473912
+      Serene Village - Outside_768x768_22: 852467085
+      Serene Village - Outside_768x768_24: 2066219505
+      Serene Village - Outside_768x768 1_0: -257171024
+      Serene Village - Outside_768x768_29: 1312210251
+      Serene Village - Outside_768x768_21: 2122095897
+      Serene Village - Outside_768x768_20: -1383398415
+      Serene Village - Outside_768x768_15: 65971810
+      Serene Village - Outside_768x768_12: -624227001
+      Serene Village - Outside_768x768_7: -14786880
+      Serene Village - Outside_768x768_1: -1844602404
+      Serene Village - Outside_768x768_23: 1712791169
+      Serene Village - Outside_768x768_14: -153732902
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
