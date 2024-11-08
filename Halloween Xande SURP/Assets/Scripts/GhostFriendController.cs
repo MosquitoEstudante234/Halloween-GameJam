@@ -1,13 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemyControll : MonoBehaviour
+public class GhostFriendController : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform targetPosition;
-
-    public float life;
-    public float damage;
 
     void Awake()
     {
@@ -25,3 +22,4 @@ public class enemyControll : MonoBehaviour
         agent.SetDestination(targetPosition.position);
     }
 }
+
