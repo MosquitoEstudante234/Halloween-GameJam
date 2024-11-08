@@ -5,6 +5,10 @@ public class GhostFriendController : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform targetPosition;
+    public Vector3 mousePos;
+
+    public float ValueX;
+    public float ValueY;
 
     void Awake()
     {
@@ -16,6 +20,10 @@ public class GhostFriendController : MonoBehaviour
     private void Update()
     {
         SetAgentPosition();
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        mousePos.x = ValueX;
+        ValueX = Input.GetAxis("Horizontal");
     }
     void SetAgentPosition()
     {
