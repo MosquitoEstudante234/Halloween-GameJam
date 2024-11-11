@@ -172,7 +172,7 @@ MonoBehaviour:
   aimTransform: {fileID: 0}
   gunAngle: 0
   mousePos: {x: 0, y: 0, z: 0}
-  gunBullets: 0
+  gunBullets: 5
   reloadingTime: 0
   damage: 0
   OnShoot:
@@ -151278,7 +151278,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 0d1673b76bc249f4ca9f528276adc943, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 1
+  weight: 0.871
   priority: 0
 --- !u!4 &1791522808
 Transform:
