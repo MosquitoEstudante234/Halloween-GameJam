@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -9,33 +9,32 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
-    public GameObject mainCam;
-    public GameObject player;
-
     public Animator animator;
 
     public Queue<string> sentences;
-
-    public string NextScene;
+    public Queue<string> characterNames;  // Nova fila para armazenar os nomes dos personagens
 
     void Start()
     {
         sentences = new Queue<string>();
+        characterNames = new Queue<string>(); // Inicializa a fila de nomes
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
 
-        nameText.text = dialogue.name;
-
+        // Limpa as filas de frases e personagens
         sentences.Clear();
+        characterNames.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        // Adiciona as frases e os nomes dos personagens nas filas
+        for (int i = 0; i < dialogue.sentences.Length; i++)
         {
-            sentences.Enqueue(sentence);
-            
+            sentences.Enqueue(dialogue.sentences[i]);
+            characterNames.Enqueue(dialogue.characterNames[i]);  // Adiciona os nomes alternados
         }
+
         DisplayNextSentence();
     }
 
@@ -48,7 +47,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+        string characterName = characterNames.Dequeue();  // Obtém o nome do personagem para essa fala
+
+        nameText.text = characterName;  // Atualiza o nome do personagem
         dialogueText.text = sentence;
+
         StopAllCoroutines();
         StartCoroutine(TypeLetters(sentence));
     }
@@ -56,7 +59,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeLetters(string sentence)
     {
         dialogueText.text = "";
-        foreach(char letter in sentence.ToCharArray())
+        foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return null;
@@ -66,7 +69,5 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        SceneManager.LoadScene(NextScene);
     }
-
 }
