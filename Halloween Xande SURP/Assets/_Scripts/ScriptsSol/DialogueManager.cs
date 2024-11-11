@@ -11,28 +11,30 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
-    public Queue<string> sentences;
-    public Queue<string> characterNames;  // Nova fila para armazenar os nomes dos personagens
+    private string character1Name;
+    private string character2Name;
+    private bool isCharacter1Turn = true;  // Controla a alternância entre os personagens
+
+    private Queue<string> sentences;
 
     void Start()
     {
         sentences = new Queue<string>();
-        characterNames = new Queue<string>(); // Inicializa a fila de nomes
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
 
-        // Limpa as filas de frases e personagens
-        sentences.Clear();
-        characterNames.Clear();
+        // Define os nomes dos personagens com base no diálogo passado
+        character1Name = dialogue.character1Name;
+        character2Name = dialogue.character2Name;
 
-        // Adiciona as frases e os nomes dos personagens nas filas
-        for (int i = 0; i < dialogue.sentences.Length; i++)
+        sentences.Clear();
+
+        foreach (string sentence in dialogue.sentences)
         {
-            sentences.Enqueue(dialogue.sentences[i]);
-            characterNames.Enqueue(dialogue.characterNames[i]);  // Adiciona os nomes alternados
+            sentences.Enqueue(sentence);
         }
 
         DisplayNextSentence();
@@ -47,9 +49,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        string characterName = characterNames.Dequeue();  // Obtém o nome do personagem para essa fala
 
-        nameText.text = characterName;  // Atualiza o nome do personagem
+        // Alterna entre os nomes dos personagens
+        if (isCharacter1Turn)
+        {
+            nameText.text = character1Name;
+        }
+        else
+        {
+            nameText.text = character2Name;
+        }
+
+        isCharacter1Turn = !isCharacter1Turn;  // Alterna a vez do personagem
         dialogueText.text = sentence;
 
         StopAllCoroutines();
