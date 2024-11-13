@@ -17,13 +17,16 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    DialogueTrigger _sender;
+
     void Start()
     {
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger sender)
     {
+        _sender = sender;
         animator.SetBool("IsOpen", true);
 
         // Define os nomes dos personagens com base no diálogo passado
@@ -60,7 +63,7 @@ public class DialogueManager : MonoBehaviour
             nameText.text = character2Name;
         }
 
-        isCharacter1Turn = !isCharacter1Turn;  // Alterna a vez do personagem
+        isCharacter1Turn = !isCharacter1Turn;  
         dialogueText.text = sentence;
 
         StopAllCoroutines();
@@ -80,5 +83,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        _sender.OnDialogueFinish.Invoke();
+        _sender = null;
     }
 }

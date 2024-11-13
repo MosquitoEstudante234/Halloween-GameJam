@@ -6,6 +6,8 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public UnityEvent startnextSentence;
 
+    public UnityEvent OnDialogueFinish;
+
     private void OnMouseOver()
     {
         TriggerDialogue();
@@ -15,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
         }
     }
 }
