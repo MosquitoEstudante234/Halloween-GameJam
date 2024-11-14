@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -11,9 +12,18 @@ public class EnterDangerous : MonoBehaviour
     public Transform targetPoint;              // Destino para onde teletransportar
     public Transform npcFriend;                // NPC que será teletransportado com o player
     public Collider2D targetCollider;          // Colisor do ponto de destino
-    public int remainingEnemies = 3;           // Número de inimigos restantes
+    public Collider2D initialCollider;         // Colisor do ponto de destino
+    public int remainingEnemies;           // Número de inimigos restantes
+    public enemyControll[] enemiesInHouse;
+
+
 
     private bool isTransitioning = false;
+
+    private void Awake()
+    {
+        remainingEnemies = enemiesInHouse.Length;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,6 +35,7 @@ public class EnterDangerous : MonoBehaviour
             {
                 targetCollider.enabled = false;
             }
+
 
             // Inicia a transição e teletransporta o player e o NPC
             StartCoroutine(TransitionAndTeleport(other.transform));
@@ -46,14 +57,15 @@ public class EnterDangerous : MonoBehaviour
 
         // Teletransporta o player e o NPC para o ponto de destino
         player.position = targetPoint.position;
-        if (npcFriend != null)
-            npcFriend.position = targetPoint.position;
+        npcFriend.GetComponent<NavMeshAgent>().enabled = false;
+        npcFriend.position = player.position;
 
         // Reverte a transição para restaurar o efeito principal
         while (mainEffect.weight < 1 || teleportEffect.weight > 0)
         {
             mainEffect.weight = Mathf.Min(1, mainEffect.weight + Time.deltaTime * transitionSpeed);
             teleportEffect.weight = Mathf.Max(0, teleportEffect.weight - Time.deltaTime * transitionSpeed);
+            npcFriend.GetComponent<NavMeshAgent>().enabled = true;
 
             yield return null;
         }

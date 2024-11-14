@@ -6,6 +6,7 @@ public class enemyControll : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform targetPosition;
+    public EnterDangerous enterDangerous;
 
     public float life = 3f;
     public float damage = 1f;
@@ -34,6 +35,7 @@ public class enemyControll : MonoBehaviour
         Damage();
         if (life <= 0)
         {
+            enterDangerous.remainingEnemies--;
             Destroy(gameObject);
         }
     }

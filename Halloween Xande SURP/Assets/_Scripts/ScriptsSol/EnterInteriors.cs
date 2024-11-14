@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -13,7 +14,7 @@ public class EnterInteriors : MonoBehaviour
     public Collider2D targetCollider;          // Colisor do ponto de destino
     public float disableDuration = 5f;         // Tempo para desativar o ponto de destino
 
-    private bool isTransitioning = false;
+    public bool isTransitioning = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,14 +22,11 @@ public class EnterInteriors : MonoBehaviour
         if (other.CompareTag("Player") && !isTransitioning)
         {
             // Desativa temporariamente o colisor do ponto de destino
-            if (targetCollider != null)
-            {
-                targetCollider.enabled = false;
-                StartCoroutine(ReenableTargetCollider());
-            }
+            StartCoroutine(ReenableTargetCollider());
 
             // Inicia a transição e teletransporta o player e o NPC
             StartCoroutine(TransitionAndTeleport(other.transform));
+            print(other);
         }
     }
 
@@ -47,19 +45,19 @@ public class EnterInteriors : MonoBehaviour
 
         // Teletransporta o player e o NPC para o ponto de destino
         player.position = targetPoint.position;
-        if (npcFriend != null)
-            npcFriend.position = targetPoint.position;
+        npcFriend.GetComponent<NavMeshAgent>().enabled = false;
+        npcFriend.position = player.position;
 
         // Reverte a transição para restaurar o efeito principal
         while (mainEffect.weight < 1 || teleportEffect.weight > 0)
         {
             mainEffect.weight = Mathf.Min(1, mainEffect.weight + Time.deltaTime * transitionSpeed);
             teleportEffect.weight = Mathf.Max(0, teleportEffect.weight - Time.deltaTime * transitionSpeed);
+            npcFriend.GetComponent<NavMeshAgent>().enabled = true;
+            isTransitioning = false;
 
             yield return null;
         }
-
-        isTransitioning = false;
     }
 
     private IEnumerator ReenableTargetCollider()
