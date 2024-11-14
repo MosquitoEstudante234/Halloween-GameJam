@@ -55,6 +55,7 @@ public class PlayerControler : MonoBehaviour
             if (playerLife <= 0)
             {
                 deathPanel.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }
