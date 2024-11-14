@@ -13,6 +13,8 @@ public enum SpriteType
 public class enemyControll : MonoBehaviour
 {
     NavMeshAgent agent;
+    public SlimeSplit Slime;
+
     public Transform targetPosition;
     public UnityEvent OnDamage;
     public SpriteType spriteType;
@@ -27,13 +29,13 @@ public class enemyControll : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
+        targetPosition = FindObjectOfType<PlayerControler>().GetComponent<Transform>();
     }
 
     private void Update()
     {
         SetAgentPosition();
-        if(gameObject.transform.position.x >= targetPosition.transform.position.x)
+        if (gameObject.transform.position.x >= targetPosition.transform.position.x)
         {
             switch (spriteType)
             {
@@ -73,6 +75,16 @@ public class enemyControll : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Damage();
+        if (gameObject.GetComponent<SlimeSplit>())
+        {
+            print("abu");
+            if(life <= 0)
+            {
+                gameObject.GetComponent<SlimeSplit>().RandomGenerator();
+            }
+            return;
+        }
+        print("wow");
         if (life <= 0)
         {
             Destroy(gameObject);
