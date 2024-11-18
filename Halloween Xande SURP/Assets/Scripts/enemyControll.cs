@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -31,6 +32,7 @@ public class enemyControll : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         targetPosition = FindObjectOfType<PlayerControler>().GetComponent<Transform>();
+        Scene scene = SceneManager.GetActiveScene();
     }
 
     private void Update()
@@ -86,7 +88,10 @@ public class enemyControll : MonoBehaviour
         }
         if (life <= 0)
         {
-            CureDrop();
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Mapa Sol para Testes"))
+            {
+                CureDrop();
+            }
             Destroy(gameObject);
         }
     }
