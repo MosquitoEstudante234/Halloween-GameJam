@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2255817c37b91d24a9b6569cd1edd5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {fileID: 0}
+  Slime: {fileID: 0}
+  Cura: {fileID: 2130166938774155520, guid: 431ea3690fbf7b947b3e00b9f57c55a0, type: 3}
+  targetPosition: {fileID: 1634370289386972132, guid: 15ce2ceea92b4a0428f2e8d272c47ca7, type: 3}
   OnDamage:
     m_PersistentCalls:
       m_Calls:

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -10,7 +12,13 @@ public class PlayerControler : MonoBehaviour
     public float playerLife = 3f;
     public float damage = 1f;
     public float moveSpeed;
+
+    public GameObject damagePanel;
     public GameObject deathPanel;
+    public GameObject heart1, heart2, heart3;
+
+    public UnityEvent OnDamage;
+
     Vector2 playerMovement;
     Animator playerAnimator;
     Rigidbody2D rb;
@@ -37,13 +45,25 @@ public class PlayerControler : MonoBehaviour
         {
             playerAnimator.SetBool("Walking", false);
         }
+
+        switch(playerLife)
+        {
+            case 0: heart1.SetActive(false); heart2.SetActive(false); heart3.SetActive(false);
+                break;
+            case 1: heart1.SetActive(true); heart2.SetActive(false); heart3.SetActive(false);
+                break;
+            case 2: heart1.SetActive(true); heart2.SetActive(true); heart3.SetActive(false);
+                break;
+            case 3: heart1.SetActive(true); heart2.SetActive(true); heart3.SetActive(true);
+                break;
+        }
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + playerMovement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
-    void DamagePlayer()
+    public void DamagePlayer()
     {
         playerLife -= damage;
     }
@@ -51,7 +71,8 @@ public class PlayerControler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            DamagePlayer();
+            OnDamage.Invoke();
+            damagePanel.SetActive(true);
             if (playerLife <= 0)
             {
                 deathPanel.SetActive(true);

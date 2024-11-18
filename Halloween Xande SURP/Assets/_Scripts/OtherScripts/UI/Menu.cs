@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
-    public string sceneName;
+    public int sceneNumber;
     public AudioSource source;
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneNumber);
     }
 
     public void Restart()

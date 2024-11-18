@@ -14,6 +14,7 @@ public class enemyControll : MonoBehaviour
 {
     NavMeshAgent agent;
     public SlimeSplit Slime;
+    public GameObject Cura;
 
     public Transform targetPosition;
     public UnityEvent OnDamage;
@@ -77,16 +78,15 @@ public class enemyControll : MonoBehaviour
         Damage();
         if (gameObject.GetComponent<SlimeSplit>())
         {
-            print("abu");
             if(life <= 0)
             {
                 gameObject.GetComponent<SlimeSplit>().RandomGenerator();
             }
             return;
         }
-        print("wow");
         if (life <= 0)
         {
+            CureDrop();
             Destroy(gameObject);
         }
     }
@@ -95,5 +95,20 @@ public class enemyControll : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
         agent.enabled = true;
+    }
+
+    public void CureDrop()
+    {
+        int RandomValue = Random.Range(0, 2);
+        print(RandomValue);
+
+        switch (RandomValue)
+        {
+            case 0:
+                break;
+            case 1:
+                Instantiate(Cura, gameObject.transform.position, Quaternion.identity);
+                break;
+        }
     }
 }
