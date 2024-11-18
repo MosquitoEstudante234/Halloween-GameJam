@@ -15,7 +15,7 @@ public class SlimeSplit : MonoBehaviour
     }
     public void RandomGenerator()
     {
-        int RandomValue = Random.Range(0, 3);
+        int RandomValue = Random.Range(0, 2);
         print(RandomValue);
 
         switch (RandomValue)
@@ -25,8 +25,6 @@ public class SlimeSplit : MonoBehaviour
             case 1:
                 Instantiate(miniSlimePrefab, gameObject.transform.position, Quaternion.identity);
                 Instantiate(miniSlimePrefab, gameObject.transform.position, Quaternion.identity);
-                break;
-            case 2:
                 break;
         }
         Destroy(gameObject);
