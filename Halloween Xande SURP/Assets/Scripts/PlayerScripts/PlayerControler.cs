@@ -71,8 +71,8 @@ public class PlayerControler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            OnDamage.Invoke();
             damagePanel.SetActive(true);
+            OnDamage.Invoke();
             if (playerLife <= 0)
             {
                 deathPanel.SetActive(true);

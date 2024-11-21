@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 82044728}
   - component: {fileID: 82044727}
   m_Layer: 5
-  m_Name: normal
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dif\xEDcil"
+  m_text: "Sobreviv\xEAncia"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1030,7 +1030,7 @@ GameObject:
   - component: {fileID: 1049427529}
   - component: {fileID: 1049427528}
   m_Layer: 5
-  m_Name: Dificil
+  m_Name: Survive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 1285931862}
   - component: {fileID: 1285931861}
   m_Layer: 5
-  m_Name: panelDificuldade
+  m_Name: PanelMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

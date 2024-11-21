@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Mapa.unity
     guid: 8a4eac8e4897b0e42a0820855fcf1c67
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: "Assets/Scenes/Mapa Sobreviv\xEAncia.unity"
+    guid: 016afb344d3d05449bef01ceb38c5152
   - enabled: 1
     path: Assets/Scenes/Mapa Sol para Testes.unity
     guid: 57039b1b48ff5414f9c0e162f7a57086

@@ -88,10 +88,6 @@ public class enemyControll : MonoBehaviour
         }
         if (life <= 0)
         {
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Mapa Sol para Testes"))
-            {
-                CureDrop();
-            }
             Destroy(gameObject);
         }
     }
