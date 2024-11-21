@@ -35,6 +35,7 @@ public class EnterDangerous : MonoBehaviour
             {
                 targetCollider.enabled = false;
             }
+            targetCollider.enabled = false;
 
 
             // Inicia a transição e teletransporta o player e o NPC
