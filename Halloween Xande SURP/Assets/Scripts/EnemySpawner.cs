@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -9,10 +7,12 @@ public class EnemySpawner : MonoBehaviour
     public GameObject BatEnemyFastPrefab;
     public GameObject BatEnemySlowPrefab;
     public GameObject GhostEnemyPrefab;
-    public GameObject SlimeEnemyPrefab4;
+    public GameObject SlimeEnemyPrefab;
+
+    public float SpawnSeconds;
     public void RandomGenerator()
     {
-        int RandomValue = Random.Range(0, 4);
+        int RandomValue = Random.Range(0, 5);
         print(RandomValue);
 
         switch (RandomValue)
@@ -30,15 +30,20 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(GhostEnemyPrefab, gameObject.transform.position, Quaternion.identity);
                 break;
             case 4:
-                Instantiate(SlimeEnemyPrefab4, gameObject.transform.position, Quaternion.identity);
+                Instantiate(SlimeEnemyPrefab, gameObject.transform.position, Quaternion.identity);
                 break;
         }
     }
     private void Start()
     {
-        
-        RandomGenerator();
+        StartCoroutine(SpawnTime());
     }
-    
+
+    public IEnumerator SpawnTime()
+    {
+        yield return new WaitForSeconds(SpawnSeconds);
+        RandomGenerator();
+        StartCoroutine(SpawnTime());
+    }
 }
 

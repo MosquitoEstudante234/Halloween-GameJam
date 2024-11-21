@@ -88,6 +88,7 @@ public class enemyControll : MonoBehaviour
         }
         if (life <= 0)
         {
+            CureDrop();
             Destroy(gameObject);
         }
     }
