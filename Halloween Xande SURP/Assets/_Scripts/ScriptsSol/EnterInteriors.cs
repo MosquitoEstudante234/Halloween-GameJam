@@ -27,6 +27,7 @@ public class EnterInteriors : MonoBehaviour
             // Inicia a transição e teletransporta o player e o NPC
             StartCoroutine(TransitionAndTeleport(other.transform));
             print(other);
+            targetCollider.enabled = false;
         }
     }
 
