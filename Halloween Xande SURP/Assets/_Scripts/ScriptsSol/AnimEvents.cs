@@ -8,7 +8,7 @@ public class AnimEvents : MonoBehaviour
 
     public void EndAnim()
     {
-        
+        gameObject.SetActive(false);
     }
 
 }
