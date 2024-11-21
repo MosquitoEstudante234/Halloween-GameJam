@@ -11,7 +11,7 @@ public enum SpriteType
 {
     normal, inverted
 }
-public class enemyControll : MonoBehaviour
+public class enemyControll : MonoBehaviour, IDamageable
 {
     NavMeshAgent agent;
     public SlimeSplit Slime;
@@ -23,8 +23,10 @@ public class enemyControll : MonoBehaviour
 
     public bool inverted;
 
-    public float life = 3f;
     public float damage = 1f;
+
+    [field: SerializeField] public float _maxLife { get; set; } = 3f;
+    [field: SerializeField] public float _curLife { get ; set ; }
 
     void Awake()
     {
@@ -33,6 +35,11 @@ public class enemyControll : MonoBehaviour
         agent.updateUpAxis = false;
         targetPosition = FindObjectOfType<PlayerControler>().GetComponent<Transform>();
         Scene scene = SceneManager.GetActiveScene();
+    }
+
+    private void Start()
+    {
+        _curLife = _maxLife;
     }
 
     private void Update()
@@ -68,28 +75,21 @@ public class enemyControll : MonoBehaviour
     {
         agent.SetDestination(targetPosition.position);
     }
-    void Damage()
-    {
-        life -= damage;
-        agent.enabled = false;
-        OnDamage.Invoke();
-        StartCoroutine(StopTime());
-    }
     private void OnParticleCollision(GameObject other)
     {
-        Damage();
+        Damage(damage);
         if (gameObject.GetComponent<SlimeSplit>())
         {
-            if(life <= 0)
+            if(_curLife <= 0)
             {
                 gameObject.GetComponent<SlimeSplit>().RandomGenerator();
             }
             return;
         }
-        if (life <= 0)
+        if (_curLife <= 0)
         {
             CureDrop();
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -112,5 +112,20 @@ public class enemyControll : MonoBehaviour
                 Instantiate(Cura, gameObject.transform.position, Quaternion.identity);
                 break;
         }
+    }
+
+    public void Damage(float damag)
+    {
+        damag = damage;
+        _curLife -= damag;
+
+        agent.enabled = false;
+        OnDamage.Invoke();
+        StartCoroutine(StopTime());
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

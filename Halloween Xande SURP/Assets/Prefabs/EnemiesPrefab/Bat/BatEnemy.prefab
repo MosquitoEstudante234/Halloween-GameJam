@@ -146,8 +146,9 @@ MonoBehaviour:
         m_CallState: 2
   spriteType: 1
   inverted: 0
-  life: 3
   damage: 1
+  <_maxLife>k__BackingField: 3
+  <_curLife>k__BackingField: 3
 --- !u!195 &2795080819052049336
 NavMeshAgent:
   m_ObjectHideFlags: 0

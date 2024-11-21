@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Missions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    List<GameObject> Enemies = new List<GameObject>();
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         
     }
