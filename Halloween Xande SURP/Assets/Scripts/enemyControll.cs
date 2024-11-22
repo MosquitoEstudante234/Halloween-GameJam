@@ -126,6 +126,7 @@ public class enemyControll : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        Missions.Instance.UpdateText();
         Destroy(gameObject);
     }
 }
