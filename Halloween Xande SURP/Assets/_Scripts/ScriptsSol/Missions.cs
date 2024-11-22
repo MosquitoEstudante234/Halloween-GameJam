@@ -10,7 +10,8 @@ public class Missions : MonoBehaviour
 
     public TMP_Text m_Text;
 
-    public GameObject teleport;
+    public GameObject teleport, Boss, Boss2, Boss3;
+    public Transform location, loc2, loc3;
 
     List<enemyControll> Enemies = new List<enemyControll>();
     int enemiesKilled;
@@ -23,19 +24,22 @@ public class Missions : MonoBehaviour
     private void Start()
     {
         Enemies.AddRange(FindObjectsOfType<enemyControll>(true));
-        m_Text.text = enemiesKilled.ToString() + "/" + Enemies.Count.ToString();
-
+        m_Text.text = $"{enemiesKilled}/{Enemies.Count - 2}";
+        Instantiate(Boss, location.position, Quaternion.identity);
+        Instantiate(Boss2, loc2.position, Quaternion.identity);
+        Instantiate(Boss3, loc3.position, Quaternion.identity);
     }
 
     public void UpdateText() 
     {
         enemiesKilled++;
-        if(enemiesKilled > Enemies.Count - 1) 
+        if(enemiesKilled >= Enemies.Count - 2) 
         {
-            m_Text.text = "Va para a Mansão";
+            m_Text.text = "Va para a Casa Assombrada";
             teleport.SetActive(true);
+            return;
         }
-        m_Text.text = enemiesKilled.ToString() + "/" + Enemies.Count.ToString();
+        m_Text.text = $"{enemiesKilled}/{Enemies.Count - 2}";
 
     }
 }
