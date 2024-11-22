@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     private string character1Name;
     private string character2Name;
-    private bool isCharacter1Turn = true;  // Controla a alternância entre os personagens
+    private bool isCharacter1Turn = true;
 
     private Queue<string> sentences;
 
@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
         _sender = sender;
         animator.SetBool("IsOpen", true);
 
-        // Define os nomes dos personagens com base no diálogo passado
+    
         character1Name = dialogue.character1Name;
         character2Name = dialogue.character2Name;
 
@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
 
-        // Alterna entre os nomes dos personagens
+    
         if (isCharacter1Turn)
         {
             nameText.text = character1Name;

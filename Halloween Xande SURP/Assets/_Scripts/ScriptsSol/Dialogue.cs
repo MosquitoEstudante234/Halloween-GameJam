@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    public string character1Name;  // Nome do primeiro personagem
-    public string character2Name;  // Nome do segundo personagem
+    public string character1Name;  
+    public string character2Name;  
 
     [TextArea(3, 10)]
-    public string[] sentences;  // Falas que serão alternadas entre os personagens
+    public string[] sentences;  
 }
