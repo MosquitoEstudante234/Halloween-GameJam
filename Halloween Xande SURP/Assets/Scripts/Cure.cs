@@ -11,6 +11,7 @@ public class Cure : MonoBehaviour
             if (collision.GetComponent<PlayerControler>().playerLife < 3)
             {
                 collision.gameObject.GetComponent<PlayerControler>().playerLife++;
+                FindObjectOfType<AudioManager>().Play("Heal");
             }
             Destroy(gameObject);
         }

@@ -62,6 +62,7 @@ public class PlayerControler : MonoBehaviour
     public void DamagePlayer()
     {
         playerLife -= damage;
+        FindObjectOfType<AudioManager>().Play("HitPlayer");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

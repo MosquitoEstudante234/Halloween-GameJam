@@ -77,6 +77,7 @@ public class enemyControll : MonoBehaviour, IDamageable
     }
     private void OnParticleCollision(GameObject other)
     {
+        FindObjectOfType<AudioManager>().Play("HitEnemy");
         Damage(damage);
         if (gameObject.GetComponent<SlimeSplit>())
         {
@@ -126,7 +127,12 @@ public class enemyControll : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        
+        if(Missions.Instance != null)
+        {
         Missions.Instance.UpdateText();
+        }
+
         Destroy(gameObject);
     }
 }

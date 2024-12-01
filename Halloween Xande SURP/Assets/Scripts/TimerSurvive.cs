@@ -13,7 +13,7 @@ public class TimerSurvive : MonoBehaviour
         timerText.text = levelTimer.ToString("F0");
         if (levelTimer <= 0)
         {
-
+            SceneManager.LoadScene("Menu");
         }
     }
 }
